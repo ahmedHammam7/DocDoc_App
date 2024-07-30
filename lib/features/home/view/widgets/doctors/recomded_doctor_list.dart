@@ -1,14 +1,38 @@
 import 'package:docdoc_project/core/helper/spacing.dart';
 import 'package:docdoc_project/core/theming/styles.dart';
+import 'package:docdoc_project/features/home/data/logic/cubit/home_cubit.dart';
+import 'package:docdoc_project/features/home/data/logic/cubit/home_state.dart';
 import 'package:docdoc_project/features/home/data/models/specilization_response.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class RecommendedDoctorsLit extends StatelessWidget {
-  const RecommendedDoctorsLit({super.key, required this.data});
-  final List<Doctors> data;
+  const RecommendedDoctorsLit({
+    super.key,
+    required this.doctors,
+  });
+  final List<Doctors> doctors;
   @override
   Widget build(BuildContext context) {
+    Widget? widget;
+    return BlocBuilder<HomeCubit, HomeState>(
+        buildWhen: (previous, current) =>
+            current is HomeDoctorsSuccess || current is HomeDoctorsFailure,
+        builder: (context, state) {
+          state.maybeWhen(
+            doctorsSuccess: (data) {
+              return widget = doctorSuccess(data);
+            },
+            doctorsFailure: (error) => widget = const SizedBox.shrink(),
+            orElse: () => const SizedBox.shrink(),
+          );
+          return widget ?? doctorSuccess(doctors);
+        });
+  }
+
+  Widget doctorSuccess(List<Doctors> data) {
     return Expanded(
       child: ListView.separated(
         itemCount: data.length,

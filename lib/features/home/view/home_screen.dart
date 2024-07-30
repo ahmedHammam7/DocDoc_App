@@ -1,13 +1,13 @@
 import 'package:docdoc_project/core/helper/spacing.dart';
-import 'package:docdoc_project/core/theming/colors.dart';
 import 'package:docdoc_project/features/home/data/logic/cubit/home_cubit.dart';
 import 'package:docdoc_project/features/home/data/logic/cubit/home_state.dart';
 import 'package:docdoc_project/features/home/data/models/specilization_response.dart';
 import 'package:docdoc_project/features/home/view/widgets/doctor_blue_container.dart';
 import 'package:docdoc_project/features/home/view/widgets/doctor_speciality_row.dart';
-import 'package:docdoc_project/features/home/view/widgets/doctor_specialty_list.dart';
+import 'package:docdoc_project/features/home/view/widgets/shimmer_loading.dart';
+import 'package:docdoc_project/features/home/view/widgets/specialty/specialty_list.dart';
 import 'package:docdoc_project/features/home/view/widgets/home_top_bar.dart';
-import 'package:docdoc_project/features/home/view/widgets/recomded_doctor_list.dart';
+import 'package:docdoc_project/features/home/view/widgets/doctors/recomded_doctor_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,13 +37,13 @@ class HomeScreen extends StatelessWidget {
             builder: (context, state) {
               state.maybeWhen(
                 loading: () {
-                  widget = homeLoading();
+                  widget = const ShimmerLoading();
                 },
                 success: (data) {
-                  widget = homeSuccess(data.data,);
+                  widget = homeSuccess(data);
                 },
                 failure: (error) {
-               widget = homeFailure(error);
+                  widget = homeFailure(error);
                 },
                 orElse: () {
                   return const SizedBox.shrink();
@@ -59,19 +59,19 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-Widget homeSuccess(List<DoctorData> data,) => Expanded(
-  child: Column(
+Widget homeSuccess(
+  List<DoctorData> data,
+) =>
+    Expanded(
+      child: Column(
         children: [
-          DoctorSpecialtyList(data: data),
+          SpecialtyList(data: data),
           verticalSpace(20),
-           RecommendedDoctorsLit(data: data[0].doctors,),
+          RecommendedDoctorsLit(
+            doctors: data.first.doctors,
+          ),
         ],
       ),
-);
+    );
 
-Widget homeFailure(String error) =>  Text(error);
-
-Widget homeLoading() => const Center(
-        child: CircularProgressIndicator(
-      color: ColorsManager.mainBlue,
-    ));
+Widget homeFailure(String error) => Text(error);

@@ -20,24 +20,30 @@ mixin _$HomeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecilizationResponse data) success,
+    required TResult Function(List<DoctorData> data) success,
     required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecilizationResponse data)? success,
+    TResult? Function(List<DoctorData> data)? success,
     TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecilizationResponse data)? success,
+    TResult Function(List<DoctorData> data)? success,
     TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +53,8 @@ mixin _$HomeState {
     required TResult Function(HomeLoading value) loading,
     required TResult Function(HomeSuccess value) success,
     required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +63,8 @@ mixin _$HomeState {
     TResult? Function(HomeLoading value)? loading,
     TResult? Function(HomeSuccess value)? success,
     TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +73,8 @@ mixin _$HomeState {
     TResult Function(HomeLoading value)? loading,
     TResult Function(HomeSuccess value)? success,
     TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,6 +95,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -99,16 +114,25 @@ class __$$InitialImplCopyWithImpl<$Res>
   __$$InitialImplCopyWithImpl(
       _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeState.initial'));
   }
 
   @override
@@ -125,8 +149,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecilizationResponse data) success,
+    required TResult Function(List<DoctorData> data) success,
     required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
   }) {
     return initial();
   }
@@ -136,8 +162,10 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecilizationResponse data)? success,
+    TResult? Function(List<DoctorData> data)? success,
     TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
   }) {
     return initial?.call();
   }
@@ -147,8 +175,10 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecilizationResponse data)? success,
+    TResult Function(List<DoctorData> data)? success,
     TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -164,6 +194,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(HomeLoading value) loading,
     required TResult Function(HomeSuccess value) success,
     required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
   }) {
     return initial(this);
   }
@@ -175,6 +207,8 @@ class _$InitialImpl implements _Initial {
     TResult? Function(HomeLoading value)? loading,
     TResult? Function(HomeSuccess value)? success,
     TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
   }) {
     return initial?.call(this);
   }
@@ -186,6 +220,8 @@ class _$InitialImpl implements _Initial {
     TResult Function(HomeLoading value)? loading,
     TResult Function(HomeSuccess value)? success,
     TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -213,16 +249,25 @@ class __$$HomeLoadingImplCopyWithImpl<$Res>
   __$$HomeLoadingImplCopyWithImpl(
       _$HomeLoadingImpl _value, $Res Function(_$HomeLoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$HomeLoadingImpl implements HomeLoading {
+class _$HomeLoadingImpl with DiagnosticableTreeMixin implements HomeLoading {
   const _$HomeLoadingImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'HomeState.loading'));
   }
 
   @override
@@ -239,8 +284,10 @@ class _$HomeLoadingImpl implements HomeLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecilizationResponse data) success,
+    required TResult Function(List<DoctorData> data) success,
     required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
   }) {
     return loading();
   }
@@ -250,8 +297,10 @@ class _$HomeLoadingImpl implements HomeLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecilizationResponse data)? success,
+    TResult? Function(List<DoctorData> data)? success,
     TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
   }) {
     return loading?.call();
   }
@@ -261,8 +310,10 @@ class _$HomeLoadingImpl implements HomeLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecilizationResponse data)? success,
+    TResult Function(List<DoctorData> data)? success,
     TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -278,6 +329,8 @@ class _$HomeLoadingImpl implements HomeLoading {
     required TResult Function(HomeLoading value) loading,
     required TResult Function(HomeSuccess value) success,
     required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
   }) {
     return loading(this);
   }
@@ -289,6 +342,8 @@ class _$HomeLoadingImpl implements HomeLoading {
     TResult? Function(HomeLoading value)? loading,
     TResult? Function(HomeSuccess value)? success,
     TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
   }) {
     return loading?.call(this);
   }
@@ -300,6 +355,8 @@ class _$HomeLoadingImpl implements HomeLoading {
     TResult Function(HomeLoading value)? loading,
     TResult Function(HomeSuccess value)? success,
     TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -319,7 +376,7 @@ abstract class _$$HomeSuccessImplCopyWith<$Res> {
           _$HomeSuccessImpl value, $Res Function(_$HomeSuccessImpl) then) =
       __$$HomeSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({SpecilizationResponse data});
+  $Res call({List<DoctorData> data});
 }
 
 /// @nodoc
@@ -330,6 +387,8 @@ class __$$HomeSuccessImplCopyWithImpl<$Res>
       _$HomeSuccessImpl _value, $Res Function(_$HomeSuccessImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -337,24 +396,37 @@ class __$$HomeSuccessImplCopyWithImpl<$Res>
   }) {
     return _then(_$HomeSuccessImpl(
       null == data
-          ? _value.data
+          ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as SpecilizationResponse,
+              as List<DoctorData>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$HomeSuccessImpl implements HomeSuccess {
-  const _$HomeSuccessImpl(this.data);
+class _$HomeSuccessImpl with DiagnosticableTreeMixin implements HomeSuccess {
+  const _$HomeSuccessImpl(final List<DoctorData> data) : _data = data;
+
+  final List<DoctorData> _data;
+  @override
+  List<DoctorData> get data {
+    if (_data is EqualUnmodifiableListView) return _data;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_data);
+  }
 
   @override
-  final SpecilizationResponse data;
-
-  @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState.success(data: $data)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState.success'))
+      ..add(DiagnosticsProperty('data', data));
   }
 
   @override
@@ -362,13 +434,16 @@ class _$HomeSuccessImpl implements HomeSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeSuccessImpl &&
-            (identical(other.data, data) || other.data == data));
+            const DeepCollectionEquality().equals(other._data, _data));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, data);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeSuccessImplCopyWith<_$HomeSuccessImpl> get copyWith =>
@@ -379,8 +454,10 @@ class _$HomeSuccessImpl implements HomeSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecilizationResponse data) success,
+    required TResult Function(List<DoctorData> data) success,
     required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
   }) {
     return success(data);
   }
@@ -390,8 +467,10 @@ class _$HomeSuccessImpl implements HomeSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecilizationResponse data)? success,
+    TResult? Function(List<DoctorData> data)? success,
     TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
   }) {
     return success?.call(data);
   }
@@ -401,8 +480,10 @@ class _$HomeSuccessImpl implements HomeSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecilizationResponse data)? success,
+    TResult Function(List<DoctorData> data)? success,
     TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -418,6 +499,8 @@ class _$HomeSuccessImpl implements HomeSuccess {
     required TResult Function(HomeLoading value) loading,
     required TResult Function(HomeSuccess value) success,
     required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
   }) {
     return success(this);
   }
@@ -429,6 +512,8 @@ class _$HomeSuccessImpl implements HomeSuccess {
     TResult? Function(HomeLoading value)? loading,
     TResult? Function(HomeSuccess value)? success,
     TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
   }) {
     return success?.call(this);
   }
@@ -440,6 +525,8 @@ class _$HomeSuccessImpl implements HomeSuccess {
     TResult Function(HomeLoading value)? loading,
     TResult Function(HomeSuccess value)? success,
     TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -450,11 +537,13 @@ class _$HomeSuccessImpl implements HomeSuccess {
 }
 
 abstract class HomeSuccess implements HomeState {
-  const factory HomeSuccess(final SpecilizationResponse data) =
-      _$HomeSuccessImpl;
+  const factory HomeSuccess(final List<DoctorData> data) = _$HomeSuccessImpl;
 
-  SpecilizationResponse get data;
-  @JsonKey(ignore: true)
+  List<DoctorData> get data;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeSuccessImplCopyWith<_$HomeSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -476,6 +565,8 @@ class __$$HomeFailureImplCopyWithImpl<$Res>
       _$HomeFailureImpl _value, $Res Function(_$HomeFailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -492,15 +583,23 @@ class __$$HomeFailureImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$HomeFailureImpl implements HomeFailure {
+class _$HomeFailureImpl with DiagnosticableTreeMixin implements HomeFailure {
   const _$HomeFailureImpl(this.error);
 
   @override
   final String error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'HomeState.failure(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState.failure'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -514,7 +613,9 @@ class _$HomeFailureImpl implements HomeFailure {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$HomeFailureImplCopyWith<_$HomeFailureImpl> get copyWith =>
@@ -525,8 +626,10 @@ class _$HomeFailureImpl implements HomeFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(SpecilizationResponse data) success,
+    required TResult Function(List<DoctorData> data) success,
     required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
   }) {
     return failure(error);
   }
@@ -536,8 +639,10 @@ class _$HomeFailureImpl implements HomeFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(SpecilizationResponse data)? success,
+    TResult? Function(List<DoctorData> data)? success,
     TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
   }) {
     return failure?.call(error);
   }
@@ -547,8 +652,10 @@ class _$HomeFailureImpl implements HomeFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(SpecilizationResponse data)? success,
+    TResult Function(List<DoctorData> data)? success,
     TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -564,6 +671,8 @@ class _$HomeFailureImpl implements HomeFailure {
     required TResult Function(HomeLoading value) loading,
     required TResult Function(HomeSuccess value) success,
     required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
   }) {
     return failure(this);
   }
@@ -575,6 +684,8 @@ class _$HomeFailureImpl implements HomeFailure {
     TResult? Function(HomeLoading value)? loading,
     TResult? Function(HomeSuccess value)? success,
     TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
   }) {
     return failure?.call(this);
   }
@@ -586,6 +697,8 @@ class _$HomeFailureImpl implements HomeFailure {
     TResult Function(HomeLoading value)? loading,
     TResult Function(HomeSuccess value)? success,
     TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
     required TResult orElse(),
   }) {
     if (failure != null) {
@@ -599,7 +712,369 @@ abstract class HomeFailure implements HomeState {
   const factory HomeFailure(final String error) = _$HomeFailureImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$HomeFailureImplCopyWith<_$HomeFailureImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeDoctorsSuccessImplCopyWith<$Res> {
+  factory _$$HomeDoctorsSuccessImplCopyWith(_$HomeDoctorsSuccessImpl value,
+          $Res Function(_$HomeDoctorsSuccessImpl) then) =
+      __$$HomeDoctorsSuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Doctors> doctors});
+}
+
+/// @nodoc
+class __$$HomeDoctorsSuccessImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeDoctorsSuccessImpl>
+    implements _$$HomeDoctorsSuccessImplCopyWith<$Res> {
+  __$$HomeDoctorsSuccessImplCopyWithImpl(_$HomeDoctorsSuccessImpl _value,
+      $Res Function(_$HomeDoctorsSuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? doctors = null,
+  }) {
+    return _then(_$HomeDoctorsSuccessImpl(
+      null == doctors
+          ? _value._doctors
+          : doctors // ignore: cast_nullable_to_non_nullable
+              as List<Doctors>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeDoctorsSuccessImpl
+    with DiagnosticableTreeMixin
+    implements HomeDoctorsSuccess {
+  const _$HomeDoctorsSuccessImpl(final List<Doctors> doctors)
+      : _doctors = doctors;
+
+  final List<Doctors> _doctors;
+  @override
+  List<Doctors> get doctors {
+    if (_doctors is EqualUnmodifiableListView) return _doctors;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_doctors);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeState.doctorsSuccess(doctors: $doctors)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState.doctorsSuccess'))
+      ..add(DiagnosticsProperty('doctors', doctors));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeDoctorsSuccessImpl &&
+            const DeepCollectionEquality().equals(other._doctors, _doctors));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_doctors));
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeDoctorsSuccessImplCopyWith<_$HomeDoctorsSuccessImpl> get copyWith =>
+      __$$HomeDoctorsSuccessImplCopyWithImpl<_$HomeDoctorsSuccessImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<DoctorData> data) success,
+    required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
+  }) {
+    return doctorsSuccess(doctors);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<DoctorData> data)? success,
+    TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
+  }) {
+    return doctorsSuccess?.call(doctors);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<DoctorData> data)? success,
+    TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
+    required TResult orElse(),
+  }) {
+    if (doctorsSuccess != null) {
+      return doctorsSuccess(doctors);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(HomeLoading value) loading,
+    required TResult Function(HomeSuccess value) success,
+    required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
+  }) {
+    return doctorsSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(HomeLoading value)? loading,
+    TResult? Function(HomeSuccess value)? success,
+    TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
+  }) {
+    return doctorsSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(HomeLoading value)? loading,
+    TResult Function(HomeSuccess value)? success,
+    TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
+    required TResult orElse(),
+  }) {
+    if (doctorsSuccess != null) {
+      return doctorsSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeDoctorsSuccess implements HomeState {
+  const factory HomeDoctorsSuccess(final List<Doctors> doctors) =
+      _$HomeDoctorsSuccessImpl;
+
+  List<Doctors> get doctors;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HomeDoctorsSuccessImplCopyWith<_$HomeDoctorsSuccessImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$HomeDoctorsFailureImplCopyWith<$Res> {
+  factory _$$HomeDoctorsFailureImplCopyWith(_$HomeDoctorsFailureImpl value,
+          $Res Function(_$HomeDoctorsFailureImpl) then) =
+      __$$HomeDoctorsFailureImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String error});
+}
+
+/// @nodoc
+class __$$HomeDoctorsFailureImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeDoctorsFailureImpl>
+    implements _$$HomeDoctorsFailureImplCopyWith<$Res> {
+  __$$HomeDoctorsFailureImplCopyWithImpl(_$HomeDoctorsFailureImpl _value,
+      $Res Function(_$HomeDoctorsFailureImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$HomeDoctorsFailureImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$HomeDoctorsFailureImpl
+    with DiagnosticableTreeMixin
+    implements HomeDoctorsFailure {
+  const _$HomeDoctorsFailureImpl(this.error);
+
+  @override
+  final String error;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'HomeState.doctorsFailure(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'HomeState.doctorsFailure'))
+      ..add(DiagnosticsProperty('error', error));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HomeDoctorsFailureImpl &&
+            (identical(other.error, error) || other.error == error));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, error);
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$HomeDoctorsFailureImplCopyWith<_$HomeDoctorsFailureImpl> get copyWith =>
+      __$$HomeDoctorsFailureImplCopyWithImpl<_$HomeDoctorsFailureImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(List<DoctorData> data) success,
+    required TResult Function(String error) failure,
+    required TResult Function(List<Doctors> doctors) doctorsSuccess,
+    required TResult Function(String error) doctorsFailure,
+  }) {
+    return doctorsFailure(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(List<DoctorData> data)? success,
+    TResult? Function(String error)? failure,
+    TResult? Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult? Function(String error)? doctorsFailure,
+  }) {
+    return doctorsFailure?.call(error);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(List<DoctorData> data)? success,
+    TResult Function(String error)? failure,
+    TResult Function(List<Doctors> doctors)? doctorsSuccess,
+    TResult Function(String error)? doctorsFailure,
+    required TResult orElse(),
+  }) {
+    if (doctorsFailure != null) {
+      return doctorsFailure(error);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(HomeLoading value) loading,
+    required TResult Function(HomeSuccess value) success,
+    required TResult Function(HomeFailure value) failure,
+    required TResult Function(HomeDoctorsSuccess value) doctorsSuccess,
+    required TResult Function(HomeDoctorsFailure value) doctorsFailure,
+  }) {
+    return doctorsFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(HomeLoading value)? loading,
+    TResult? Function(HomeSuccess value)? success,
+    TResult? Function(HomeFailure value)? failure,
+    TResult? Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult? Function(HomeDoctorsFailure value)? doctorsFailure,
+  }) {
+    return doctorsFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(HomeLoading value)? loading,
+    TResult Function(HomeSuccess value)? success,
+    TResult Function(HomeFailure value)? failure,
+    TResult Function(HomeDoctorsSuccess value)? doctorsSuccess,
+    TResult Function(HomeDoctorsFailure value)? doctorsFailure,
+    required TResult orElse(),
+  }) {
+    if (doctorsFailure != null) {
+      return doctorsFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HomeDoctorsFailure implements HomeState {
+  const factory HomeDoctorsFailure(final String error) =
+      _$HomeDoctorsFailureImpl;
+
+  String get error;
+
+  /// Create a copy of HomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$HomeDoctorsFailureImplCopyWith<_$HomeDoctorsFailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
