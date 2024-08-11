@@ -25,11 +25,12 @@ class LoginCubit extends Cubit<LoginState> {
       password: passwordController.text,
     ));
     response.when(
-        success: (loginResponse) async{
-        await  SharedPrefHelper.setSecuredData(SharedPrefsConstant.token, loginResponse.userData.token);
+        success: (loginResponse) async {
+          await SharedPrefHelper.setSecuredData(
+              SharedPrefsConstant.token, loginResponse.userData.token);
           emit(LoginState.success(loginResponse));
         },
         failure: (error) =>
-            emit(LoginState.error(error.apiErrorModel.message ?? "")));
+            emit(LoginState.error(error.getAllErrorMessages() ?? "")));
   }
 }

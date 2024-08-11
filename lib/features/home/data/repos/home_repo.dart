@@ -9,14 +9,14 @@ class HomeRepo {
   final ApiService apiService;
 
   HomeRepo(this.apiService);
-  
 
   Future<ApiResult<SpecilizationResponse>> getSpecialization() async {
     try {
-      final response = await apiService.getSpecialization("Bearer ${await SharedPrefHelper.getSecuredData(SharedPrefsConstant.token)}");
+      final response = await apiService.getSpecialization(
+          "Bearer ${await SharedPrefHelper.getSecuredData(SharedPrefsConstant.token)}");
       return ApiResult.success(response);
     } catch (error) {
-      return ApiResult.failure(ErrorHandler.handle(error));
+      return ApiResult.failure(ApiErrorHandler.handle(error));
     }
   }
 }

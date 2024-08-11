@@ -17,7 +17,7 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.success(doctors));
       },
       failure: (error) =>
-          emit(HomeState.failure(error.apiErrorModel.message ?? "")),
+          emit(HomeState.failure(error.getAllErrorMessages() ?? "")),
     );
   }
 
